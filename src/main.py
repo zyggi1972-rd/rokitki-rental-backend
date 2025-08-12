@@ -29,7 +29,14 @@ app.register_blueprint(property_bp, url_prefix='/api')
 app.register_blueprint(payment_bp, url_prefix='/api')
 
 # Database configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(os.path.dirname(__file__), 'database', 'app.db')}"
+#app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(os.path.dirname(__file__), 'database', 'app.db')}"
+
+# default to local SQLite file (for local dev)
+default_db = f"sqlite:///{os.path.join(os.path.dirname(__file__), 'database', 'app.db')}"
+# use DATABASE_URL env var if present (for remote Postgres like Supabase)
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', default_db)
+
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
