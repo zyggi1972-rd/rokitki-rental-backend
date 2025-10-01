@@ -1,0 +1,12 @@
+:root{
+  --sun-yellow:#FFC107;
+  --lake-blue:#2F80ED;
+  --seafoam:#56CCF2;
+  --sand:#FFE8A1;
+}
+body{background:linear-gradient(180deg,#fff 0%, #fffdf5 100%)}
+.btn-primary{background-color:var(--lake-blue);border-color:var(--lake-blue)}
+.text-primary{color:var(--lake-blue)!important}
+.navbar{background-image:linear-gradient(90deg,#fff, #f8fbff)}
+.badge-vip{background:var(--sun-yellow);color:#513C06}
+
